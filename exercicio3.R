@@ -57,6 +57,16 @@ teste[3,]<-data.frame(KDTMean=0.001569498070280, #Fadiga = 3
                      AEDMean=0.052910995943371,
                      ADMSLMean=-0.0205040507122)
 
+#teste sem saber o resultado (apontado para ser nivel 7)
+teste[4,]<-data.frame(KDTMean=0, 
+                      MAMean=0.2,
+                      MVMean=0.02,
+                      TBCMean=-0.2,
+                      DDCMean=-0.2, 
+                      DMSMean=-0.2,
+                      AEDMean=0.2,
+                      ADMSLMean=0.2)
+
 
 #correr os  testes na rede
 rede.results<-compute(rede,teste)
