@@ -12,29 +12,34 @@ library("neuralnet")
 #sep é o separador, que no caso é a virgula
 #dec é o caracter dos decimais, no caso o ponto
 #Rafa : D:\\Rafa\\Escola\\GitHub\\SRCR-Exercicio3\\exercicio3.txt
-trainset <- read.csv("D:\\Rafa\\Escola\\GitHub\\SRCR-Exercicio3\\exercicio3.txt",
-                     header=TRUE,sep=",",dec=".")
+dados <- read.csv("D:\\Rafa\\Escola\\GitHub\\SRCR-Exercicio3\\exercicio3.txt",
+                     header=TRUE,
+                     sep=",",
+                     dec=".")
 #mostrar a "cabeça" do dataset
 #head(trainset)
 
 #criar a rede
-creditnet<-neuralnet(FatigueLevel ~ KDTMean+MAMean+MVMean+TBCMean+DDCMean+DMSMean+AEDMean+ADMSLMean,
-                     trainset,hidden=c(5),threshold=0.01)
+rede<-neuralnet(FatigueLevel ~ KDTMean+MAMean+MVMean+TBCMean+DDCMean+DMSMean+AEDMean+ADMSLMean,
+                dados,
+                hidden=c(15,10),
+                threshold=0.05)
 
 #mostrar a rede
-plot(creditnet)
+plot(rede)
 
 #criar uma matriz de teste
-test<-data.frame(KDTMean=0.061230881311235, #Suposto ser 1
-                 MAMean=0.861594433682678,
-                 MVMean=0.827884249001262,
-                 TBCMean=-0.72964333684447,
-                 DDCMean=-0.216083140977348,
-                 DMSMean=-0.95231460729886,
-                 AEDMean=-0.032232906774237,
-                 ADMSLMean=-0.7486575377275)
+teste<-data.frame(KDTMean=0.003348521404442, #Fadiga = 1
+                 MAMean=-0.033404750237223,
+                 MVMean=-0.025152220755905,
+                 TBCMean=0.16703901845170,
+                 DDCMean=-0.039538593130319,
+                 DMSMean=0.01458038388061,
+                 AEDMean=0.046126139282830,
+                 ADMSLMean=0.0121196527185)
 
-test[2,]<-data.frame(KDTMean=0.001747651084306, #Suposto ser 6
+
+teste[2,]<-data.frame(KDTMean=0.001747651084306, #Fadiga = 6
                      MAMean=0.097482878651944,
                      MVMean=0.115366961041514,
                      TBCMean=-0.07807993361726,
@@ -43,28 +48,34 @@ test[2,]<-data.frame(KDTMean=0.001747651084306, #Suposto ser 6
                      AEDMean=-0.038354975497981,
                      ADMSLMean=0.0522370512802)
 
-test[3,]<-data.frame(KDTMean=1,
-                     MAMean=1,
-                     MVMean=1,
-                     TBCMean=1,
-                     DDCMean=1, 
-                     DMSMean=1,
-                     AEDMean=1,
-                     ADMSLMean=1)
+teste[3,]<-data.frame(KDTMean=, #Fadiga = 3
+                     MAMean=,
+                     MVMean=,
+                     TBCMean=,
+                     DDCMean=, 
+                     DMSMean=,
+                     AEDMean=,
+                     ADMSLMean=)
 
-test[4,]<-data.frame(KDTMean=-1,
-                     MAMean=-1,
-                     MVMean=-1,
-                     TBCMean=-1,
-                     DDCMean=-1, 
-                     DMSMean=-1,
-                     AEDMean=-1,
-                     ADMSLMean=-1)
+0.001569498070280  0.038427963994892	0.042207642284009	-0.08706136653531	0.034277394962323	-0.00879804916891	0.052910995943371	-0.0205040507122
 								
 
 #correr os  testes na rede
-creditnet.results<-compute(creditnet,test)
+rede.results<-compute(rede,teste)
 
 #imprimir respostas
-print(round(creditnet.results$net.result))
-print(creditnet.results$net.result)
+print(round(rede.results$net.result))
+print(rede.results$net.result)
+
+
+
+
+#If needed
+#teste[3,]<-data.frame(KDTMean=, #Fadiga = 3
+ #                     MAMean=,
+  #                    MVMean=,
+   #                   TBCMean=,
+    #                  DDCMean=, 
+     #                 DMSMean=,
+      #                AEDMean=,
+       #               ADMSLMean=)
