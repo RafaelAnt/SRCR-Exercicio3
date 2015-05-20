@@ -48,17 +48,15 @@ teste[2,]<-data.frame(KDTMean=0.001747651084306, #Fadiga = 6
                      AEDMean=-0.038354975497981,
                      ADMSLMean=0.0522370512802)
 
-teste[3,]<-data.frame(KDTMean=, #Fadiga = 3
-                     MAMean=,
-                     MVMean=,
-                     TBCMean=,
-                     DDCMean=, 
-                     DMSMean=,
-                     AEDMean=,
-                     ADMSLMean=)
+teste[3,]<-data.frame(KDTMean=0.001569498070280, #Fadiga = 3
+                     MAMean=0.038427963994892,
+                     MVMean=0.042207642284009,
+                     TBCMean=-0.08706136653531,
+                     DDCMean=0.034277394962323, 
+                     DMSMean=-0.00879804916891,
+                     AEDMean=0.052910995943371,
+                     ADMSLMean=-0.0205040507122)
 
-0.001569498070280  0.038427963994892	0.042207642284009	-0.08706136653531	0.034277394962323	-0.00879804916891	0.052910995943371	-0.0205040507122
-								
 
 #correr os  testes na rede
 rede.results<-compute(rede,teste)
