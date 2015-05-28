@@ -34,7 +34,7 @@ tempo <- proc.time()
 #criar a rede
 rede<-neuralnet(FatigueLevel ~ KDTMean+MAMean+MVMean+TBCMean+DDCMean+DMSMean+AEDMean+ADMSLMean,
                 trainset,
-                hidden=c(30,20),
+                hidden=c(6,3),
                 threshold=0.01)
 
 #mostrar a rede
