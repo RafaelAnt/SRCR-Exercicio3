@@ -44,7 +44,7 @@ plot(rede)
 proc.time() - tempo
 
 #imprimir o erro
-print(rede$result.matrix.error)
+print(rede$result.matrix)
 
 ## definir variaveis de input para teste   
 temp_test <- subset(testset,select = c("KDTMean","MAMean","MVMean","TBCMean","DDCMean","DMSMean","AEDMean","ADMSLMean"))
